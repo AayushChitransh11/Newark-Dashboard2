@@ -2,7 +2,6 @@ const express = require("express");
 const { User } = require("../models/db"); 
 const router = express.Router();
 
-
 router.get("/", async (req, res) => {
   try {
     const users = await User.find({}, "First_Name Last_Name Email Role");
