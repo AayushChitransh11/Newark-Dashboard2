@@ -19,6 +19,8 @@ app.use("/api/organisation", require("./routes/organisationRoutes")); // Organis
 // app.use("/api/payment", require("./routes/paymentRoutes"));           // Payments
 // app.use("/api/evaluation", require("./routes/evaluationRoutes"));     // Evaluations
 app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/appointments", require("./routes/appointmentRoutes"));
+
 // Default route
 app.get("/", (req, res) => {
     res.send("API is running...");

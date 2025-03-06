@@ -88,7 +88,7 @@ const EvaluationSchema = new mongoose.Schema({
     Service_ID: { type: mongoose.Schema.Types.ObjectId, ref: "Service", required: true }
 }, { timestamps: true });
 
-// ✅ **Participant Service Schema**
+// Participant Service Schema**
 const ParticipantServiceSchema = new mongoose.Schema({
     Participant_ID: { type: mongoose.Schema.Types.ObjectId, ref: "Participant", required: true, index: true },
     Service_ID: { type: mongoose.Schema.Types.ObjectId, ref: "Service", required: true, index: true },
@@ -102,6 +102,13 @@ const ServiceProviderSchema = new mongoose.Schema({
     ServiceDelivery_Date: { type: Date }
 }, { timestamps: true });
 
+const AppointmentSchema = new mongoose.Schema({
+    Participant_ID: { type: mongoose.Schema.Types.ObjectId, ref: "Participant", required: true },
+    ServiceProvider_ID: { type: mongoose.Schema.Types.ObjectId, ref: "Provider", required: true },
+    Date: { type: Date, required: true },
+    TimeSlot: { type: String, required: true }, // e.g., "10:00 AM - 11:00 AM"
+    Status: { type: String, enum: ["Pending", "Approved", "Reschedule"], default: "Pending" }
+}, { timestamps: true });
 
 const User = mongoose.model("User", UserSchema);
 const Organisation = mongoose.model("Organisation", OrganisationSchema);
@@ -113,6 +120,7 @@ const Payment = mongoose.model("Payment", PaymentSchema);
 const Evaluation = mongoose.model("Evaluation", EvaluationSchema);
 const ParticipantService = mongoose.model("ParticipantService", ParticipantServiceSchema);
 const ServiceProvider = mongoose.model("ServiceProvider", ServiceProviderSchema);
+const Appointment = mongoose.model("Appointment", AppointmentSchema);
 
 module.exports = {
     User,
@@ -124,5 +132,6 @@ module.exports = {
     Payment,
     Evaluation,
     ParticipantService,
-    ServiceProvider
+    ServiceProvider,
+    Appointment
 };

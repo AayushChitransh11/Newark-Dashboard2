@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css"; // Ensure this contains updated styles
+import TableauViz from './TableauViz';
+
 
 const Dashboard = () => {
     const [organisations, setOrganisations] = useState([]);
@@ -146,6 +148,22 @@ const Dashboard = () => {
             {/* Right Side: Program Details */}
             <div className="content">
                 <h1 className="dashboard-title">Dashboard Overview</h1>
+                <h3>Crime Data Visualization</h3>
+                {/* <iframe
+                    src="https://public.tableau.com/views/NewarkCrimeGraphs/Sheet2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                    width="100%"
+                    height="600px"
+                    style={{ border: "none" }}
+                    title="Crime Data Visualization"
+                ></iframe> */}
+                 {/* <div class='tableauPlaceholder' id='viz1741192652598' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ne&#47;NewarkCrimeGraphs&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='NewarkCrimeGraphs&#47;Sheet2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ne&#47;NewarkCrimeGraphs&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1741192652598');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                 */}
+                  <div style={{width: '800px', height:'450px'}}>
+                    
+                    <TableauViz/>
+                    </div>
+
                 {programDetails.length > 0 ? (
                     <div className="program-details-container">
                         {programDetails.map(program => (
@@ -159,6 +177,7 @@ const Dashboard = () => {
                     <p className="select-message">Select an organisation and a program to view details.</p>
                 )}
             </div>
+            
         </div>
     );
 };

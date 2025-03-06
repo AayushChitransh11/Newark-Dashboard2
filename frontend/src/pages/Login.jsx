@@ -15,8 +15,18 @@ function Login() {
         Email: email,
         Password: password,
       });
-      localStorage.setItem("token", response.data.token);
-      navigate("/dashboard");
+      const { token, role } = response.data;
+      localStorage.setItem("token", token);
+
+      if (role === "participant") {
+          navigate("/participant");
+      } else if (role === "organisation") {
+          navigate("/dashboard");
+      } else if (role === "serviceprovider") {
+          navigate("/service-provider");
+      } else {
+          alert("Unknown role");
+      }
     } catch (error) {
       console.error("Login failed:", error.response?.data?.message || error);
     }

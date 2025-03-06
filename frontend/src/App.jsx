@@ -3,8 +3,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import Participants from "./pages/Participants";
+import ServiceProvider from "./pages/ServiceProvider";
 import "./index.css";
 import { useEffect, useState } from "react";
+import TableauEmbed from "./pages/TableauViz";
 
 function Navbar() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -34,6 +37,8 @@ function Navbar() {
         ) : (
           <>
             <Link to="/dashboard">Dashboard</Link>
+            <Link to="/participant">Participant Page</Link>
+            <Link to="/service-provider">Service Provider Page</Link>
             <button className="logout-btn" onClick={handleLogout}>Logout</button>
           </>
         )}
@@ -59,6 +64,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/participant" element={<Participants />} />
+        <Route path="/service-provider" element={<ServiceProvider />} />
       </Routes>
       <Footer />
     </Router>
