@@ -1,36 +1,54 @@
 # Newark-Dashboard2
-Prerequisites
-Node.js (v18 or higher recommended)
-npm
-MongoDB (local or Atlas)
 
-# Backend Setup
-# Go to the backend folder
+A MERN stack dashboard application using React (Vite) frontend and Node.js + Express backend.
+
+---
+
+## Prerequisites
+- Node.js (v18 or higher)
+- npm
+- MongoDB (local or Atlas)
+
+---
+
+## Backend Setup
+
+1. Go to backend folder:
 cd backend
 
-# Install dependencies
+
+2. Install dependencies:
 npm install
 
-# Create a .env file by copying the example
+3. Copy the example env file:
 cp .env.example .env
 
-# Open the newly created .env file and update your MongoDB URI
-# Example:
-# MONGO_URI=mongodb://localhost:27017/newark_dashboard
+4. Edit `.env` and add your MongoDB URI:
+MONGO_URI=mongodb://localhost:27017/newark_dashboard
 
-# Start the server (make sure nodemon is installed globally or defined in devDependencies)
+5. Start the server:
 npm run dev
 
-# Frontend Setup
 
-# Open a new terminal and go to the frontend folder
+## Frontend Setup
+
+1. Open a new terminal and go to frontend:
 cd frontend
 
-# Clean up any old builds (optional but recommended)
+2. (Optional) Clean previous builds:
 rm -rf node_modules package-lock.json ~/.esbuild
 
-# Install frontend dependencies
+3. Install dependencies:
 npm install
 
-# Start the React app using Vite
+4. Start the frontend app:
 npm run dev
+
+## Environment File
+
+- File: `backend/.env`
+- Sample:
+MONGO_URI=your-mongodb-connection-string-here
+
+- Copy example:
+cp backend/.env.example backend/.env
